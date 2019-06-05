@@ -16,6 +16,9 @@ ADD cron.d/fetch-crl.cron /etc/cron.d/fetch-crl.cron
 
 ADD supervisord.d/condor.conf /etc/supervisord.d/condor.conf
 
+# This is a submit only node, do not run the start deamon here
+ADD condor.d/01_noexec_daemons.conf /etc/condor/config.d/
+
 # enables gratia
 RUN touch /var/lock/subsys/gratia-probes-cron
 
